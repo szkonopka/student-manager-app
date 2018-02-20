@@ -1,0 +1,33 @@
+<div class="addition-controller">
+  <form class="form-container" #studentForm="ngForm" (ngSubmit)="onSubmit(studentForm)">
+    <input type="hidden" name="ID" #ID="ngModel" [(ngModel)]="studentService.selectedStudent.ID">
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <input class="form-control" name="Name" #Name="ngModel" [(ngModel)]="studentService.selectedStudent.Name" placeholder="Name" required>
+        <div class="validation-error" *ngIf="Name.invalid && Name.touched">This field is required</div>
+      </div>
+      <div class="form-group col-sm-6">
+        <input class="form-control" name="Surname" #Surname="ngModel" [(ngModel)]="studentService.selectedStudent.Surname" placeholder="Surname" required>
+        <div class="validation-error" *ngIf="Surname.invalid && Surname.touched">This field is required</div>
+      </div>
+      <div class="form-group col-sm-6">
+        <input class="form-control" name="City" #City="ngModel" [(ngModel)]="studentService.selectedStudent.City" placeholder="City" required>
+        <div class="validation-error" *ngIf="City.invalid && City.touched">This field is required</div>
+      </div>
+      <div class="form-group col-sm-6">
+        <input type="date" class="form-control" name="DateOfBirth" #DateOfBirth="ngModel" [(ngModel)]="studentService.selectedStudent.DateOfBirth" placeholder="Date of birth" required>
+        <div class="validation-error" *ngIf="DateOfBirth.invalid && DateOfBirth.touched">This field is required</div>
+      </div>
+    </div>
+      
+    <div class="form-row">
+      <div class="col-md-6">
+        <button [disabled]="!studentForm.valid" type="submit" class="btn btn-lg btn-block btn-add">Add a student</button>
+      </div>
+      <div class="col-md-2"></div>
+      <div class="col-md-4">
+        <button class="btn btn-lg btn-block btn-reset" (click)=resetForm(studentForm)>Reset</button>
+      </div>
+    </div>
+  </form>
+</div>

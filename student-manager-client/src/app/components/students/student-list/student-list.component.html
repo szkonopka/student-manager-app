@@ -1,0 +1,17 @@
+<table class="table table-sm student-list">
+  <!--<tr *ngFor="let student of studentService.studentList">-->
+  <tr *ngFor="let student of studentService.studentList">
+    <td><p>{{ student.Name }} {{ student.Surname }}</p></td>
+    <td><p>{{ student.City }}</p></td>
+    <td><p>{{ student.DateOfBirth | date:'MM/dd/yyyy' }}</p></td>
+    <td>
+      <a class="btn" (click)="showForEdit(student)">
+        <i class="fa fa-pencil-square-o"></i>
+      </a>
+      <a class="btn" (click)="onDelete(student.ID)">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </td>
+    <td><button class="btn btn-sm btn-block btn-detail" (click)="showStudentDetails(student.ID)">Details</button></td>
+  </tr>
+</table>

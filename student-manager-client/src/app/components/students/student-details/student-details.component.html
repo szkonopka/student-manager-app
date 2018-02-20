@@ -1,0 +1,8 @@
+<div class="details-controller">
+  <div *ngIf="studentService.selectedStudentDetails?.length == 0">
+    <h1>NO DATA</h1>
+  </div>
+  <ul *ngFor="let studentDetail of studentService.selectedStudentDetails">
+    <li><b style="color: #1C0113;">{{ studentDetail.Name }}</b>: {{ studentDetail.NumberEquivalent }} ({{ studentDetail.LetterEquivalent }})</li>
+  </ul>
+</div>
